@@ -1,7 +1,6 @@
 package hydrothermal
 
 import (
-	"fmt"
 	"math"
 	"strconv"
 	"strings"
@@ -106,22 +105,17 @@ func (m *Map) Plot() {
 	if m.VentCounts == nil {
 		m.VentCounts = make(map[Point]int)
 	}
-	zero := Point{0, 0}
 	for _, l1 := range m.Lines {
 		points := l1.Points()
 		for _, point := range points {
-			if *point == zero {
-				fmt.Println("here?")
-			}
 			m.VentCounts[*point]++
 		}
 	}
 }
 
 func (m *Map) PointsWithVentCountGreaterThan(count int) (result int) {
-	for point, v := range m.VentCounts {
+	for _, v := range m.VentCounts {
 		if v > count {
-			fmt.Println(point, v)
 			result++
 		}
 	}
