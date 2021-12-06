@@ -4,6 +4,7 @@ import (
 	"adventOfCode2021/hydrothermal"
 	"adventOfCode2021/util"
 	"fmt"
+	"time"
 )
 
 func main() {
@@ -46,9 +47,11 @@ func main() {
 	//fmt.Println(board.UnmatchedSum(), lastNumber)
 
 	// Day 5
+	start := time.Now()
 	data := util.ReadFileIntoLines("day5.txt")
 	m := hydrothermal.Map{}
 	m.AddLines(data)
 	m.Plot()
 	fmt.Println(m.PointsWithVentCountGreaterThan(1))
+	fmt.Println(time.Now().Sub(start))
 }

@@ -14,7 +14,7 @@ type Point struct {
 func NewPoint(str string) *Point {
 	coordinates := strings.Split(str, ",")
 	if len(coordinates) != 2 {
-		panic("did not get exactly 2 points")
+		panic("did not get exactly 2 numbers")
 	}
 	x, _ := strconv.Atoi(coordinates[0])
 	y, _ := strconv.Atoi(coordinates[1])
